@@ -37,9 +37,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, MovieSourceDe
     }
     
     @IBAction func searchMovies(_ sender: UIButton) {
-        movieViewModel.getMoviesFrom(userSearch: searchString) { (movies) in
+        movieViewModel.getMoviesFrom(userSearch: searchString) { [weak self] (movies) in
             
             if let updatedMovies = movies{
+                guard let self = self else { return }
                 self.movieDataSource.movies = updatedMovies
                 self.refreshMovieData()
             }
