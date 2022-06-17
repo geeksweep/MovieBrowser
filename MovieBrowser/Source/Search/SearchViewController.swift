@@ -48,8 +48,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, MovieSourceDe
     
     private func refreshMovieData() {
         DispatchQueue.main.async {
-            //self.movieTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             self.movieTableView.reloadData()
+            //if user has scrolled down from previous search, scroll to top of tableview
+            self.movieTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
   

@@ -48,13 +48,19 @@ class MovieViewModel: NSObject {
             
             //short date format
             dateFormatter.dateFormat = "M/dd/YYYY"
-            let someShortDateString = dateFormatter.string(from: dateFromString!)
+            let someShortDateString = (dateFromString != nil) ? dateFormatter.string(from: dateFromString!) : "Unavailable"
             i.shortFormatReleaseDate = "Release Date: \(someShortDateString)"
             
             //long date format
             dateFormatter.dateFormat = "MMMM dd, YYYY"
-            let someLongDateString = dateFormatter.string(from: dateFromString!)
+            let someLongDateString = (dateFromString != nil) ? dateFormatter.string(from: dateFromString!) : "Unavailable Release Date"
             i.longFormatReleaseDate = someLongDateString
+            
+            
+            ///Movie Overview/Description
+            if i.overview.isEmpty {
+                i.overview = "No Available Description"
+            }
             
             /// Poster Image
             // Create URL

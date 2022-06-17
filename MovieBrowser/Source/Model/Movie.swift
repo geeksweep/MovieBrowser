@@ -6,6 +6,9 @@
 //  Copyright © 2022 Lowe's Home Improvement. All rights reserved.
 //
 
+
+//Movie model to match api parameters + custom params for dates
+
 import Foundation
 
 struct Root: Codable {
@@ -17,7 +20,7 @@ class Movie: Codable {
     var releaseDate:String
     var shortFormatReleaseDate:String?
     var longFormatReleaseDate:String?
-    let overview:String
+    var overview:String
     let voteAverage:Float
     let posterPath:String?
     var posterImage:Data?
